@@ -1,7 +1,7 @@
 #include <iostream>
 #include "core.h"
 
-static auto asciiArt()-> const char* {
+static auto asciiArt() -> const char* {
     return R"(
 
 
