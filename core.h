@@ -7,9 +7,7 @@
 
 
 // A class for blueprinting memory utils
-class Memory {
-
-    public:
+namespace Memory {
 
         // A method for getting the total RAM in Gigabytes
         static auto GetAllRAM() -> DWORDLONG {
@@ -40,9 +38,7 @@ class Memory {
 };
 
 // A class for blueprinting storage utils
-class Storage {
-
-    public:
+namespace Storage {
 
         // A method for getting the total storage in Gigabytes
         static auto GetDiskCapacity() -> DWORDLONG {
@@ -71,9 +67,7 @@ class Storage {
 };
 
 // A class for blueprinting CPU utils
-class CPU {
-
-    public:
+namespace CPU {
 
         // A helper method for getting the raw cpuid
         static auto _cpuid(int pInt[4], unsigned int i) -> void {
