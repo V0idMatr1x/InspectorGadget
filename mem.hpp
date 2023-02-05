@@ -8,7 +8,7 @@
 
 namespace Memory {
 
-    // A method for getting the total RAM in Gigabytes
+    // Returns the total RAM in Gigabytes
     static auto GetAllRAM() -> DWORDLONG {
         MEMORYSTATUSEX ram;
         ram.dwLength = sizeof(MEMORYSTATUSEX);
@@ -17,7 +17,7 @@ namespace Memory {
         return ram.ullTotalPhys / 1024.0 / 1024.0 / 1024.0;
     }
 
-    // A method for getting the free RAM in Gigabytes
+    // Returns the free RAM in Gigabytes
     static auto GetFreeRAM() -> DWORDLONG {
         MEMORYSTATUSEX ram;
         ram.dwLength = sizeof(MEMORYSTATUSEX);
@@ -26,7 +26,7 @@ namespace Memory {
         return ram.ullAvailPhys / 1024.0 / 1024.0 / 1024.0;
     }
 
-    // A method for getting the used RAM in Gigabytes
+    // Returns the used RAM in Gigabytes
     static auto GetUsedRAM() -> DWORDLONG {
         MEMORYSTATUSEX ram;
         ram.dwLength = sizeof(MEMORYSTATUSEX);

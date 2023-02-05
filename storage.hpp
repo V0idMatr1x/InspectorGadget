@@ -8,7 +8,7 @@
 
 namespace Storage {
 
-    // A method for getting the total storage in Gigabytes
+    // Returns the total storage in Gigabytes
     static auto GetDiskCapacity() -> DWORDLONG {
         ULARGE_INTEGER totalBytes;
         GetDiskFreeSpaceEx("C:\\", NULL, &totalBytes, NULL);
@@ -16,7 +16,7 @@ namespace Storage {
         return totalBytes.QuadPart / 1024.0 / 1024.0 / 1024.0;
     }
 
-    // A method for getting the free storage in Gigabytes
+    // Returns the free storage in Gigabytes
     static auto GetFreeDiskSpace() -> DWORDLONG {
         ULARGE_INTEGER freeBytes;
         GetDiskFreeSpaceEx("C:\\", &freeBytes, NULL, NULL);
@@ -24,7 +24,7 @@ namespace Storage {
         return freeBytes.QuadPart / 1024.0 / 1024.0 / 1024.0;
     }
 
-    // A method for getting the used storage in Gigabytes
+    // Returns the used storage in Gigabytes
     static auto GetUsedDiskSpace() -> DWORDLONG {
         ULARGE_INTEGER freeBytes;
         ULARGE_INTEGER totalBytes;

@@ -6,7 +6,7 @@
 
 namespace Computer {
 
-    // A helper method for getting the raw cpuid
+    // Returns the raw cpuid
     static auto _cpuid(int pInt[4], unsigned int i) -> void {
         __asm__ __volatile__ (
                 "cpuid":
@@ -17,7 +17,7 @@ namespace Computer {
                 "a" (i), "c" (0));
     }
 
-    // A method for getting the CPU name
+    // Returns the CPU name
     static auto GetCPUName() -> std::string {
         int cpuInfo[4] = {-1};
         char cpuName[0x40];
@@ -40,7 +40,7 @@ namespace Computer {
         return cpuName;
     }
 
-    // A method for getting the CPU core count
+    // Returns the CPU core count
     static auto GetCPUCoreCount() -> int {
         SYSTEM_INFO cpu;
         GetSystemInfo(&cpu);
