@@ -1,5 +1,7 @@
 #include <iostream>
-#include "core.h"
+#include "mem.hpp"
+#include "storage.hpp"
+#include "computer.hpp"
 
 static auto asciiArt() -> const char* {
     return R"(
