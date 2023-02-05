@@ -6,7 +6,6 @@
 #pragma INSPECTORGADGET_CORE_H
 
 
-// A class for blueprinting memory utils
 namespace Memory {
 
         // A method for getting the total RAM in Gigabytes
@@ -37,7 +36,6 @@ namespace Memory {
         }
 };
 
-// A class for blueprinting storage utils
 namespace Storage {
 
         // A method for getting the total storage in Gigabytes
@@ -66,7 +64,6 @@ namespace Storage {
         }
 };
 
-// A class for blueprinting CPU utils
 namespace CPU {
 
         // A helper method for getting the raw cpuid
