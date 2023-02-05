@@ -1,5 +1,5 @@
 #include <iostream>
-#include "mem.hpp"
+#include "memory.hpp"
 #include "storage.hpp"
 #include "computer.hpp"
 

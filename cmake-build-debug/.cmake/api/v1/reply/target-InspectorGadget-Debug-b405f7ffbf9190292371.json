@@ -115,7 +115,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "mem.hpp",
+			"path" : "memory.hpp",
 			"sourceGroupIndex" : 1
 		},
 		{
