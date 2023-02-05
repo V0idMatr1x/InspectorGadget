@@ -3,8 +3,8 @@
 //
 #include<windows.h>
 
-#ifndef INSPECTORGADGET_CORE_H
-#define INSPECTORGADGET_CORE_H
+#pragma INSPECTORGADGET_CORE_H
+
 
 // A class for blueprinting memory utils
 class Memory {
@@ -119,5 +119,3 @@ class CPU {
         }
 };
 
-
-#endif //INSPECTORGADGET_CORE_H
