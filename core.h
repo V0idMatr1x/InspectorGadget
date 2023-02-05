@@ -64,7 +64,7 @@ namespace Storage {
         }
 };
 
-namespace CPU {
+namespace Computer {
 
         // A helper method for getting the raw cpuid
         static auto _cpuid(int pInt[4], unsigned int i) -> void {
@@ -74,8 +74,7 @@ namespace CPU {
                     "=b" (pInt[1]),
                     "=c" (pInt[2]),
                     "=d" (pInt[3]) :
-                    "a" (i), "c" (0)
-                    );
+                    "a" (i), "c" (0));
         }
 
         // A method for getting the CPU name
@@ -108,5 +107,16 @@ namespace CPU {
 
             return cpu.dwNumberOfProcessors;
         }
+
+        // Returns the GPU name from the bus id as string
+        static auto GetGPUName() -> std::string {
+            DISPLAY_DEVICE displayDevice;
+            displayDevice.cb = sizeof(DISPLAY_DEVICE);
+
+            EnumDisplayDevices(NULL, 0, &displayDevice, 0);
+
+            return displayDevice.DeviceString;
+        }
+
 };
 
