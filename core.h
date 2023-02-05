@@ -117,5 +117,4 @@ namespace Computer {
 
             return displayDevice.DeviceString;
         }
-
 };
