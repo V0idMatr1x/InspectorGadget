@@ -1,0 +1,3 @@
+C:/Users/chris/CLionProjects/InspectorGadget/cmake-build-debug/CMakeFiles/InspectorGadget.dir
+C:/Users/chris/CLionProjects/InspectorGadget/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/chris/CLionProjects/InspectorGadget/cmake-build-debug/CMakeFiles/rebuild_cache.dir
