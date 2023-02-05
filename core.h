@@ -82,11 +82,11 @@ namespace Computer {
             int cpuInfo[4] = {-1};
             char cpuName[0x40];
             _cpuid(cpuInfo, 0x80000000);
-            unsigned int nExIds = cpuInfo[0];
+            unsigned int x = cpuInfo[0];
 
             memset(cpuName, 0, sizeof(cpuName));
 
-            for (unsigned int i = 0x80000000; i <= nExIds; ++i) {
+            for (unsigned int i = 0x80000000; i <= x; ++i) {
                 _cpuid(cpuInfo, i);
 
                 if (i == 0x80000002)
@@ -108,7 +108,7 @@ namespace Computer {
             return cpu.dwNumberOfProcessors;
         }
 
-        // Returns the GPU name from the bus id as string
+        // Returns the GPU name from the bus id
         static auto GetGPUName() -> std::string {
             DISPLAY_DEVICE displayDevice;
             displayDevice.cb = sizeof(DISPLAY_DEVICE);
