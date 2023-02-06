@@ -43,9 +43,9 @@ static auto host() -> std::string {
 }
 
 // Returns the native resolution of the screen and converts it to a string
-static auto GetNativeResolution() -> std::string {
+static auto getNativeResolution() -> std::string {
     DEVMODE devMode;
-    EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &devMode);
+    EnumDisplaySettings(nullptr, ENUM_CURRENT_SETTINGS, &devMode);
     return std::to_string(devMode.dmPelsWidth) + "x" + std::to_string(devMode.dmPelsHeight);
 }
 
@@ -61,5 +61,5 @@ int main() {
     std::cout << "CPU: " << Computer::GetCPUName() << std::endl;
     std::cout << "CPU Cores: " << Computer::GetCPUCoreCount() << std::endl;
     std::cout << "GPU: " << Computer::GetGPUName() << std::endl;
-    std::cout << "Native Resolution: " << GetNativeResolution() << std::endl;
+    std::cout << "Native Resolution: " << getNativeResolution() << std::endl;
 }

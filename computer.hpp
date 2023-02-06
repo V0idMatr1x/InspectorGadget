@@ -53,7 +53,7 @@ namespace Computer {
         DISPLAY_DEVICE displayDevice;
         displayDevice.cb = sizeof(DISPLAY_DEVICE);
 
-        EnumDisplayDevices(NULL, 0, &displayDevice, 0);
+        EnumDisplayDevices(nullptr, 0, &displayDevice, 0);
 
         return displayDevice.DeviceString;
     }
