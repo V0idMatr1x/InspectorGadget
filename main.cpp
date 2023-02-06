@@ -1,4 +1,7 @@
+// STL Dependencies
 #include <iostream>
+
+// Linked Dependencies
 #include "memory.hpp"
 #include "storage.hpp"
 #include "computer.hpp"
