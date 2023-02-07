@@ -41,7 +41,7 @@ class Computer
             return edition;
         }
 
-        // Returns the motherboard name
+        // Returns the Motherboard name
         static auto GetMotherboardName() -> std::string {
             HKEY hKey;
             LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(HARDWARE\DESCRIPTION\System\BIOS)", 0, KEY_READ, &hKey) };
