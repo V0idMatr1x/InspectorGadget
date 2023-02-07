@@ -56,6 +56,10 @@ static auto getNativeResolution() -> std::string {
 
 int main()
 {
+    // Standard Output Color (Green)
+    system("color 0A");
+
+    // Output
     std::cout << asciiArt() << std::endl;
     std::cout << "OS: " << host() << std::endl;
     std::cout << "Edition: " << Computer::GetEdition() << std::endl;

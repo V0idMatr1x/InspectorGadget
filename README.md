@@ -6,4 +6,4 @@ You can think of it as a more minimal and faster Neofetch for Windows or a more 
 
 This project is the spiritual successor to [SimpleFetch](https://github.com/V0idMatr1x/SimpleFetch) which is less featureful and written in Python; Python has obvious limitations for this use case.
 
-<img width="830" alt="demo" src="https://user-images.githubusercontent.com/88049272/217186462-d650b40d-d9bf-4310-a632-ec7ef4948d3f.png">
+<img width="1073" alt="demo" src="https://user-images.githubusercontent.com/88049272/217188821-9a9aca73-ef5d-4e35-b2ec-d58d0eafe86b.png">
