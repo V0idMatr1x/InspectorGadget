@@ -1,7 +1,8 @@
 // STL Dependencies
 #include <iostream>
 #include <windows.h>
-// Linked Dependencies
+
+// Statically Linked Dependencies
 #include "memory.hpp"
 #include "storage.hpp"
 #include "computer.hpp"
