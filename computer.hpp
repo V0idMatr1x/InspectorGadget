@@ -23,6 +23,42 @@ class Computer
 
     public:
 
+        // Check's for & returns the licensed Windows edition
+        static auto GetEdition() -> std::string {
+            HKEY hKey;
+            LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows NT\CurrentVersion)", 0, KEY_READ, &hKey) };
+
+            char  edition[80];
+            DWORD dwBufLen { sizeof(edition) };
+            result = RegQueryValueEx(hKey, "EditionID", nullptr, nullptr, (LPBYTE) edition, &dwBufLen);
+
+            if (result != ERROR_SUCCESS) {
+                return "Unknown";
+            }
+
+            RegCloseKey(hKey);
+
+            return edition;
+        }
+
+        // Returns the motherboard name
+        static auto GetMotherboardName() -> std::string {
+            HKEY hKey;
+            LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(HARDWARE\DESCRIPTION\System\BIOS)", 0, KEY_READ, &hKey) };
+
+            char  board[80];
+            DWORD dwBufLen { sizeof(board) };
+            result = RegQueryValueEx(hKey, "BaseBoardProduct", nullptr, nullptr, (LPBYTE) board, &dwBufLen);
+
+            if (result != ERROR_SUCCESS) {
+                return "Unknown";
+            }
+
+            RegCloseKey(hKey);
+
+            return board;
+        }
+
         // Returns the CPU name
         static auto GetCPUName() -> std::string {
             int cpuInfo[4] {-1};
@@ -64,21 +100,4 @@ class Computer
             return gpu.DeviceString;
         }
 
-        // Check's for & returns the licensed Windows edition
-        static auto GetEdition() -> std::string {
-            HKEY hKey;
-            LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows NT\CurrentVersion)", 0, KEY_READ, &hKey) };
-
-            char  edition[80];
-            DWORD dwBufLen { sizeof(edition) };
-            result = RegQueryValueEx(hKey, "EditionID", nullptr, nullptr, (LPBYTE) edition, &dwBufLen);
-
-            if (result != ERROR_SUCCESS) {
-                return "Unknown";
-            }
-
-            RegCloseKey(hKey);
-
-            return edition;
-        }
 };
