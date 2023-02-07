@@ -1,6 +1,6 @@
 // STL Dependencies
 #include <iostream>
-
+#include <windows.h>
 // Linked Dependencies
 #include "memory.hpp"
 #include "storage.hpp"
@@ -55,6 +55,7 @@ static auto getNativeResolution() -> std::string {
 int main() {
     std::cout << asciiArt() << std::endl;
     std::cout << "OS: " << host() << std::endl;
+    std::cout << "Edition: " << Computer::GetEdition() << std::endl;
     std::cout << "Installed Memory: " << Memory::GetAllRAM() << "GB" << std::endl;
     std::cout << "Used Memory: " << Memory::GetUsedRAM() << "GB" << std::endl;
     std::cout << "Free Memory: " << Memory::GetFreeRAM() << "GB" << std::endl;

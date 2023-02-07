@@ -2,9 +2,8 @@
 // Created by chris on 2/5/2023.
 //
 
-#include <windows.h>
-
 #pragma INSPECTORGADGET_MEM_H
+
 
 namespace Memory {
 

@@ -4,6 +4,7 @@
 
 #pragma INSPECTORGADGET_COMPUTER_H
 
+
 namespace Computer {
 
     // Returns the raw cpuid
@@ -50,11 +51,29 @@ namespace Computer {
 
     // Returns the GPU name from the bus id
     static auto GetGPUName() -> std::string {
-        DISPLAY_DEVICE displayDevice;
-        displayDevice.cb = sizeof(DISPLAY_DEVICE);
+        DISPLAY_DEVICE gpu;
+        gpu.cb = sizeof(DISPLAY_DEVICE);
 
-        EnumDisplayDevices(nullptr, 0, &displayDevice, 0);
+        EnumDisplayDevices(nullptr, 0, &gpu, 0);
 
-        return displayDevice.DeviceString;
+        return gpu.DeviceString;
+    }
+
+    // Check's for & returns the licensed Windows edition
+    static auto GetEdition() -> std::string {
+        HKEY hKey;
+        LONG result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows NT\CurrentVersion)", 0, KEY_READ, &hKey);
+
+        char  edition[80];
+        DWORD dwBufLen = sizeof(edition);
+        result = RegQueryValueEx(hKey, "EditionID", nullptr, nullptr, (LPBYTE) edition, &dwBufLen);
+
+        if (result != ERROR_SUCCESS) {
+            return "Unknown Edition";
+        }
+
+        RegCloseKey(hKey);
+
+        return edition;
     }
 };
