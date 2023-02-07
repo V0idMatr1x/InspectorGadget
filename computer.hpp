@@ -5,7 +5,8 @@
 #pragma INSPECTORGADGET_COMPUTER_H
 
 
-namespace Computer {
+namespace Computer
+{
 
     // Returns the raw cpuid
     static auto _cpuid(int pInt[4], unsigned int i) -> void {
@@ -20,10 +21,10 @@ namespace Computer {
 
     // Returns the CPU name
     static auto GetCPUName() -> std::string {
-        int cpuInfo[4] = {-1};
+        int cpuInfo[4] {-1};
         char cpuName[0x40];
         _cpuid(cpuInfo, 0x80000000);
-        unsigned int x = cpuInfo[0];
+        unsigned int x { static_cast<unsigned int>(cpuInfo[0]) };
 
         memset(cpuName, 0, sizeof(cpuName));
 
@@ -42,7 +43,7 @@ namespace Computer {
     }
 
     // Returns the CPU core count
-    static auto GetCPUCoreCount() -> int {
+    static auto GetCPUCoreCount() -> DWORD {
         SYSTEM_INFO cpu;
         GetSystemInfo(&cpu);
 
@@ -59,17 +60,18 @@ namespace Computer {
         return gpu.DeviceString;
     }
 
+    std::string const UNKNOWN {"Unknown"};
     // Check's for & returns the licensed Windows edition
     static auto GetEdition() -> std::string {
         HKEY hKey;
-        LONG result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows NT\CurrentVersion)", 0, KEY_READ, &hKey);
+        LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows NT\CurrentVersion)", 0, KEY_READ, &hKey) };
 
         char  edition[80];
-        DWORD dwBufLen = sizeof(edition);
+        DWORD dwBufLen { sizeof(edition) };
         result = RegQueryValueEx(hKey, "EditionID", nullptr, nullptr, (LPBYTE) edition, &dwBufLen);
 
         if (result != ERROR_SUCCESS) {
-            return "Unknown Edition";
+            return UNKNOWN;
         }
 
         RegCloseKey(hKey);

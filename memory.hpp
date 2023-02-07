@@ -5,7 +5,8 @@
 #pragma INSPECTORGADGET_MEM_H
 
 
-namespace Memory {
+namespace Memory
+{
 
     // Returns the total RAM in Gigabytes
     static auto GetAllRAM() -> DWORDLONG {

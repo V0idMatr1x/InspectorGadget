@@ -5,7 +5,8 @@
 #pragma INSPECTORGADGET_STORAGE_H
 
 
-namespace Storage {
+namespace Storage
+{
 
     // Returns the total storage in Gigabytes
     static auto GetDiskCapacity() -> DWORDLONG {

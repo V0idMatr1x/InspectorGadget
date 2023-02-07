@@ -40,9 +40,10 @@ static auto asciiArt() -> const char* {
     )";
 }
 
-// Returns the host OS as a static value
+// Returns the host OS as a constant string value
+std::string const OS { "Windows" };
 static auto host() -> std::string {
-    return "Windows";
+    return OS;
 }
 
 // Returns the native resolution of the screen and converts it to a string
@@ -52,7 +53,8 @@ static auto getNativeResolution() -> std::string {
     return std::to_string(devMode.dmPelsWidth) + "x" + std::to_string(devMode.dmPelsHeight);
 }
 
-int main() {
+int main()
+{
     std::cout << asciiArt() << std::endl;
     std::cout << "OS: " << host() << std::endl;
     std::cout << "Edition: " << Computer::GetEdition() << std::endl;
