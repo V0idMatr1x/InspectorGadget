@@ -6,6 +6,7 @@
 #include "memory.hpp"
 #include "storage.hpp"
 #include "computer.hpp"
+#include "windows.hpp"
 
 static auto asciiArt() -> const char* {
     return R"(
@@ -62,7 +63,8 @@ int main()
     // Output
     std::cout << asciiArt() << std::endl;
     std::cout << "OS: " << host() << std::endl;
-    std::cout << "Edition: " << Computer::GetEdition() << std::endl;
+    std::cout << "Edition: " << Windows::GetEdition() << std::endl;
+    std::cout << "WSL: " << Windows::GetWSLStatus() << std::endl;
     std::cout << "Motherboard: " << Computer::GetMotherboardName() << std::endl;
     std::cout << "Installed Memory: " << Memory::GetAllRAM() << "GB" << std::endl;
     std::cout << "Used Memory: " << Memory::GetUsedRAM() << "GB" << std::endl;

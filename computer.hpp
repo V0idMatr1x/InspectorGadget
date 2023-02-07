@@ -23,24 +23,6 @@ class Computer
 
     public:
 
-        // Check's for & returns the licensed Windows edition
-        static auto GetEdition() -> std::string {
-            HKEY hKey;
-            LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows NT\CurrentVersion)", 0, KEY_READ, &hKey) };
-
-            char  edition[80];
-            DWORD dwBufLen { sizeof(edition) };
-            result = RegQueryValueEx(hKey, "EditionID", nullptr, nullptr, (LPBYTE) edition, &dwBufLen);
-
-            if (result != ERROR_SUCCESS) {
-                return "Unknown";
-            }
-
-            RegCloseKey(hKey);
-
-            return edition;
-        }
-
         // Returns the Motherboard name
         static auto GetMotherboardName() -> std::string {
             HKEY hKey;
@@ -99,5 +81,4 @@ class Computer
 
             return gpu.DeviceString;
         }
-
 };
