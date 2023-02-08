@@ -2,7 +2,7 @@
 // Created by chris on 2/5/2023.
 //
 
-#pragma INSPECTORGADGET_COMPUTER_H
+#pragma once
 
 
 class Computer

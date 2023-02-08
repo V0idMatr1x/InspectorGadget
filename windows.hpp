@@ -2,7 +2,7 @@
 // Created by chris on 2/7/2023.
 //
 
-#pragma INSPECTORGADGET_WINDOWS_HPP
+#pragma once
 
 
 namespace Windows {
