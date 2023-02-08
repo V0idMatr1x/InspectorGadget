@@ -8,7 +8,7 @@
 namespace Windows {
 
     // Check's for & returns the licensed Windows edition
-    static auto GetEdition() -> std::string {
+    static auto Edition() -> std::string {
         HKEY hKey;
         LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows NT\CurrentVersion)", 0, KEY_READ, &hKey) };
 
@@ -19,23 +19,19 @@ namespace Windows {
         if (result != ERROR_SUCCESS) {
             return "Unknown";
         }
-
         RegCloseKey(hKey);
-
         return edition;
     }
 
-    // Check's if WSL is installed and if so returns "enabled" else: "disabled"
-    static auto GetWSLStatus() -> std::string {
-        HKEY hKey;
-        LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss)", 0, KEY_READ, &hKey) };
+   // Check's if WSL is enabled or not
+    static auto WSLStatus() -> std::string {
+         HKEY hKey;
+         LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE,R"(SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss)",0,KEY_READ, &hKey) };
 
-        if (result != ERROR_SUCCESS) {
-            return "Disabled";
-        }
-
-        RegCloseKey(hKey);
-
-        return "Enabled";
+         if (result != ERROR_SUCCESS) {
+              return "Disabled";
+         }
+         RegCloseKey(hKey);
+         return "Enabled";
     }
 };

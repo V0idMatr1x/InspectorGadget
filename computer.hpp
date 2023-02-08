@@ -24,7 +24,7 @@ class Computer
     public:
 
         // Returns the Motherboard name
-        static auto GetMotherboardName() -> std::string {
+        static auto FindMotherboardName() -> std::string {
             HKEY hKey;
             LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(HARDWARE\DESCRIPTION\System\BIOS)", 0, KEY_READ, &hKey) };
 
@@ -42,7 +42,7 @@ class Computer
         }
 
         // Returns the CPU name
-        static auto GetCPUName() -> std::string {
+        static auto FindCPUName() -> std::string {
             int cpuInfo[4] {-1};
             char cpuName[0x40];
             _cpuid(cpuInfo, 0x80000000);
@@ -65,7 +65,7 @@ class Computer
         }
 
         // Returns the CPU core count
-        static auto GetCPUCoreCount() -> DWORD {
+        static auto FindCPUCoreCount() -> DWORD {
             SYSTEM_INFO cpu;
             GetSystemInfo(&cpu);
 
@@ -73,7 +73,7 @@ class Computer
         }
 
         // Returns the GPU name from the bus id
-        static auto GetGPUName() -> std::string {
+        static auto FindGPUName() -> std::string {
             DISPLAY_DEVICE gpu;
             gpu.cb = sizeof(DISPLAY_DEVICE);
 

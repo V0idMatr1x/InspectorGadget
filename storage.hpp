@@ -9,7 +9,7 @@ namespace Storage
 {
 
     // Returns the total storage in Gigabytes
-    static auto GetDiskCapacity() -> DWORDLONG {
+    static auto FindDiskCapacity() -> DWORDLONG {
         ULARGE_INTEGER totalBytes;
         GetDiskFreeSpaceEx("C:\\", nullptr, &totalBytes, nullptr);
 
@@ -17,7 +17,7 @@ namespace Storage
     }
 
     // Returns the free storage in Gigabytes
-    static auto GetFreeDiskSpace() -> DWORDLONG {
+    static auto FindFreeDiskSpace() -> DWORDLONG {
         ULARGE_INTEGER freeBytes;
         GetDiskFreeSpaceEx("C:\\", &freeBytes, nullptr, nullptr);
 
@@ -25,7 +25,7 @@ namespace Storage
     }
 
     // Returns the used storage in Gigabytes
-    static auto GetUsedDiskSpace() -> DWORDLONG {
+    static auto FindUsedDiskSpace() -> DWORDLONG {
         ULARGE_INTEGER freeBytes;
         ULARGE_INTEGER totalBytes;
         GetDiskFreeSpaceEx("C:\\", &freeBytes, &totalBytes, nullptr);

@@ -49,7 +49,7 @@ static auto host() -> std::string {
 }
 
 // Returns the native resolution of the screen and converts it to a string
-static auto getNativeResolution() -> std::string {
+static auto resolution() -> std::string {
     DEVMODE devMode;
     EnumDisplaySettings(nullptr, ENUM_CURRENT_SETTINGS, &devMode);
     return std::to_string(devMode.dmPelsWidth) + "x" + std::to_string(devMode.dmPelsHeight);
@@ -63,17 +63,17 @@ int main()
     // Output
     std::cout << asciiArt() << std::endl;
     std::cout << "OS: " << host() << std::endl;
-    std::cout << "Edition: " << Windows::GetEdition() << std::endl;
-    std::cout << "WSL: " << Windows::GetWSLStatus() << std::endl;
-    std::cout << "Motherboard: " << Computer::GetMotherboardName() << std::endl;
-    std::cout << "Installed Memory: " << Memory::GetAllRAM() << "GB" << std::endl;
-    std::cout << "Used Memory: " << Memory::GetUsedRAM() << "GB" << std::endl;
-    std::cout << "Free Memory: " << Memory::GetFreeRAM() << "GB" << std::endl;
-    std::cout << "Disk Capacity: " << Storage::GetDiskCapacity() << "GB" <<std::endl;
-    std::cout << "Free Disk Space: " << Storage::GetFreeDiskSpace() << "GB" << std::endl;
-    std::cout << "Used Disk Space: " << Storage::GetUsedDiskSpace() << "GB" << std::endl;
-    std::cout << "CPU: " << Computer::GetCPUName() << std::endl;
-    std::cout << "CPU Cores: " << Computer::GetCPUCoreCount() << std::endl;
-    std::cout << "GPU: " << Computer::GetGPUName() << std::endl;
-    std::cout << "Native Resolution: " << getNativeResolution() << std::endl;
+    std::cout << "Edition: " << Windows::Edition() << std::endl;
+    std::cout << "WSL: " << Windows::WSLStatus() << std::endl;
+    std::cout << "Motherboard: " << Computer::FindMotherboardName() << std::endl;
+    std::cout << "Installed Memory: " << Memory::FindAllRAM() << "GB" << std::endl;
+    std::cout << "Used Memory: " << Memory::FindUsedRAM() << "GB" << std::endl;
+    std::cout << "Free Memory: " << Memory::FindFreeRAM() << "GB" << std::endl;
+    std::cout << "Disk Capacity: " << Storage::FindDiskCapacity() << "GB" <<std::endl;
+    std::cout << "Free Disk Space: " << Storage::FindFreeDiskSpace() << "GB" << std::endl;
+    std::cout << "Used Disk Space: " << Storage::FindUsedDiskSpace() << "GB" << std::endl;
+    std::cout << "CPU: " << Computer::FindCPUName() << std::endl;
+    std::cout << "CPU Cores: " << Computer::FindCPUCoreCount() << std::endl;
+    std::cout << "GPU: " << Computer::FindGPUName() << std::endl;
+    std::cout << "Native Resolution: " << resolution() << std::endl;
 }
