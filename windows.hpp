@@ -26,7 +26,7 @@ namespace Windows {
    // Check's if WSL is enabled or not
     static auto WSLStatus() -> std::string {
          HKEY hKey;
-         LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE,R"(SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss)",0,KEY_READ, &hKey) };
+         LONG result { RegOpenKeyEx(HKEY_LOCAL_MACHINE, R"(SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss)", 0, KEY_READ, &hKey) };
 
          if (result != ERROR_SUCCESS) {
               return "Disabled";
