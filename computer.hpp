@@ -35,9 +35,7 @@ class Computer
             if (result != ERROR_SUCCESS) {
                 return "Unknown";
             }
-
             RegCloseKey(hKey);
-
             return board;
         }
 
